@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import OccasionCard from '../../components/OccasionCard.astro';
+import { OCCASIONS } from '../../data/site';
+---
+<BaseLayout
+  title="Uitjes voor elke gelegenheid in Utrecht"
+  description="Bedrijfsuitje, vrijgezellenfeest, kinderfeestje of een dagje met vrienden: praktische gidsen per gelegenheid, met activiteiten die daar het best bij passen."
+>
+  <section class="section page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Uitjes voor</p>
+      <h1>Welk uitje past bij de gelegenheid?</h1>
+      <p class="lede">
+        Dezelfde activiteit werkt niet voor elk gezelschap. Deze gidsen geven per gelegenheid concrete tips en de
+        activiteiten die daar het best bij aansluiten.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="grid grid-2">
+        {OCCASIONS.map((occasion) => <OccasionCard occasion={occasion} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { padding-bottom: 8px; }
+</style>

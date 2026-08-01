@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ActivityCard from '../components/ActivityCard.astro';
+import OccasionCard from '../components/OccasionCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import VimeoEmbed from '../components/VimeoEmbed.astro';
+import { SITE, ACTIVITIES, OCCASIONS } from '../data/site';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('nieuws'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+<BaseLayout
+  title="Utrecht Team — inspiratie voor teambuilding en uitjes in Utrecht"
+  description="Ontdek de leukste teamuitjes, bedrijfsuitjes en activiteiten in Utrecht. Onafhankelijk inspiratieplatform met gidsen, achtergrondverhalen en directe links om te boeken."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Onafhankelijk inspiratieplatform Utrecht</p>
+        <h1>Ontdek het leukste teamuitje van jullie groep in Utrecht</h1>
+        <p class="lede">
+          Utrecht Team verzamelt de beste activiteiten, bedrijfsuitjes en groepsuitjes in Utrecht op één plek.
+          Van pikdonkere spelkamers tot karaokeavonden: hier vind je uitleg, sfeerbeelden en de kortste route
+          naar boeken.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/activiteiten/">Bekijk alle activiteiten</a>
+          <a class="btn btn-secondary" href="/over/">Over dit platform</a>
+        </div>
+        <ul class="hero-facts">
+          <li>6 activiteiten uitgelicht</li>
+          <li>Groepen van 2 t/m 180 personen</li>
+          <li>Direct in het centrum van Utrecht</li>
+        </ul>
+      </div>
+      <div class="hero-media">
+        <img src="/images/activiteiten/nox-room-3.jpg" alt="Sfeerbeeld van Nox Room bij The Team Building in Utrecht" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER PROMO -->
+  <section class="section section-alt partner-section">
+    <div class="wrap partner-grid">
+      <div class="partner-media">
+        <img src="/images/activiteiten/fusion-drift-uitleg.jpg" alt="Speluitleg bij The Team Building in Utrecht" />
+      </div>
+      <div class="partner-copy">
+        <p class="eyebrow">De activiteitenpartner achter dit platform</p>
+        <h2>Alle activiteiten op Utrecht Team worden aangeboden door The Team Building</h2>
+        <p class="lede">
+          {SITE.partnerName} is het indoor activiteitencentrum in hartje Utrecht, op loopafstand van Utrecht
+          Centraal. Van bedrijfsuitje tot vrijgezellenfeest: de locatie combineert unieke, analoge spelervaringen
+          met een eigen lounge, vergaderzalen en horeca-arrangementen.
+        </p>
+        <ul class="partner-facts">
+          <li>Unieke activiteiten in het centrum van Utrecht</li>
+          <li>Groepen tot circa 180 personen</li>
+          <li>Gratis parkeren op eigen terrein</li>
+          <li>1000+ beoordelingen op Google</li>
+        </ul>
+        <a class="btn btn-primary" href={SITE.partnerUrl} rel="nofollow noopener" target="_blank">
+          Naar theteambuilding.nl
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVITEITEN -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Activiteiten</p>
+          <h2>Kies de activiteit die bij jullie groep past</h2>
+        </div>
+        <a class="btn btn-ghost" href="/activiteiten/">Alle activiteiten</a>
+      </div>
+      <div class="grid grid-3">
+        {ACTIVITIES.map((activity) => <ActivityCard activity={activity} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- UITJES VOOR -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Uitjes voor</p>
+          <h2>Voor elke gelegenheid een passend programma</h2>
+        </div>
+        <a class="btn btn-ghost" href="/uitjes-voor/">Alle gelegenheden</a>
+      </div>
+      <div class="grid grid-2">
+        {OCCASIONS.map((occasion) => <OccasionCard occasion={occasion} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="section video-section">
+    <div class="wrap video-grid">
+      <div>
+        <p class="eyebrow">In beeld</p>
+        <h2>Een kijkje bij Social Games</h2>
+        <p class="lede">
+          Social Games is de nieuwste hotspot van The Team Building: zes interactieve minigames op een
+          lichtgevende speelvloer, geschikt voor groepen van 2 tot 50 personen.
+        </p>
+        <a class="btn btn-secondary" href="/activiteiten/social-games/">Meer over Social Games</a>
+      </div>
+      <VimeoEmbed vimeoId="1161037161" title="Social Games – de nieuwe hotspot in Utrecht voor fun & games" />
+    </div>
+  </section>
+
+  <!-- NIEUWS -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Nieuws</p>
+          <h2>Laatste artikelen</h2>
+        </div>
+        <a class="btn btn-ghost" href="/nieuws/">Alle artikelen</a>
+      </div>
+      <div class="grid grid-3">
+        {articles.map((article) => (
+          <ArticleCard
+            slug={article.slug}
+            title={article.data.title}
+            description={article.data.description}
+            image={article.data.image}
+            imageAlt={article.data.imageAlt}
+            pubDate={article.data.pubDate}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section cta-section">
+    <div class="wrap cta-inner">
+      <div>
+        <h2>Weten welke activiteit bij jullie groep past?</h2>
+        <p class="lede">Bekijk het volledige aanbod en boek direct bij The Team Building.</p>
+      </div>
+      <a class="btn btn-primary" href={SITE.partnerUrl} rel="nofollow noopener" target="_blank">
+        Boek bij The Team Building
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 64px 0 88px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 28px 0 26px; }
+  .hero-facts {
+    list-style: none;
+    margin: 0;
+    padding: 18px 0 0;
+    border-top: 1px solid var(--color-line);
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-ink-soft);
+  }
+  .hero-media img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .partner-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .partner-media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+  .partner-facts {
+    list-style: none;
+    margin: 0 0 28px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+    font-weight: 600;
+    font-size: 0.93rem;
+  }
+  .partner-facts li::before { content: "✓ "; color: var(--color-red); }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .cta-section {
+    background: var(--color-ink);
+    color: var(--color-white);
+  }
+  .cta-section h2 { color: var(--color-white); }
+  .cta-section .lede { color: #cfc9ba; }
+  .cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid, .partner-grid, .video-grid { grid-template-columns: 1fr; }
+    .hero-media { order: -1; }
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+interface Props {
+  vimeoId: string;
+  title: string;
+}
+const { vimeoId, title } = Astro.props;
+---
+<div class="vimeo-wrap">
+  <iframe
+    src={`https://player.vimeo.com/video/${vimeoId}?title=0&byline=0&portrait=0&dnt=1`}
+    title={title}
+    loading="lazy"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<style>
+  .vimeo-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #000;
+    box-shadow: var(--shadow-card);
+  }
+  .vimeo-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>

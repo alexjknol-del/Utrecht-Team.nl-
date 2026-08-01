@@ -1,0 +1,135 @@
+---
+import Logo from './Logo.astro';
+import { NAV } from '../data/site';
+const current = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="wrap header-inner">
+    <Logo />
+    <nav class="main-nav" aria-label="Hoofdmenu">
+      <ul>
+        {NAV.map((item) => {
+          const active = item.href === '/' ? current === '/' : current.startsWith(item.href);
+          return (
+            <li>
+              <a href={item.href} class:list={{ active }} aria-current={active ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+    <a class="btn btn-primary header-cta" href="https://theteambuilding.nl/" rel="nofollow noopener" target="_blank">
+      Boek bij The Team Building
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <ul>
+      {NAV.map((item) => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+      <li><a href="https://theteambuilding.nl/" rel="nofollow noopener" target="_blank">Boek bij The Team Building</a></li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(251, 247, 240, 0.92);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .main-nav { margin-left: 8px; flex: 1; }
+  .main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 26px;
+    margin: 0;
+    padding: 0;
+  }
+  .main-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.96rem;
+    color: var(--color-ink-soft);
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .main-nav a:hover,
+  .main-nav a.active {
+    color: var(--color-red);
+    border-bottom-color: var(--color-red);
+  }
+  .header-cta { white-space: nowrap; }
+  .nav-toggle { display: none; }
+
+  @media (max-width: 860px) {
+    .main-nav, .header-cta { display: none; }
+    .nav-toggle {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      margin-left: auto;
+      background: transparent;
+      border: 1px solid var(--color-line);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      margin: 0 8px;
+      background: var(--color-ink);
+    }
+    .mobile-nav {
+      border-top: 1px solid var(--color-line);
+      background: var(--color-paper);
+    }
+    .mobile-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 8px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mobile-nav a {
+      display: block;
+      padding: 10px 0;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--color-ink);
+      border-bottom: 1px solid var(--color-line);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('mobile-nav');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = !menu.hidden;
+      menu.hidden = isOpen;
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  }
+</script>

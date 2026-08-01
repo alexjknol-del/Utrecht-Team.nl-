@@ -1,0 +1,33 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+<a href="/" class="logo" aria-label="Utrecht Team — home">
+  <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect width="34" height="34" rx="9" fill="#c31f3a"/>
+    <path d="M9 9v9.5a8 8 0 0 0 16 0V9" stroke="#fbf7f0" stroke-width="2.6" stroke-linecap="round"/>
+    <circle cx="25" cy="9" r="1.8" fill="#e2a038"/>
+  </svg>
+  {!compact && <span class="logo-text">Utrecht<strong>Team</strong></span>}
+</a>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.28rem;
+    letter-spacing: -0.01em;
+  }
+  .logo-text strong {
+    font-weight: 700;
+    color: var(--color-red);
+  }
+</style>

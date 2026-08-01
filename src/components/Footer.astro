@@ -1,0 +1,128 @@
+---
+import Logo from './Logo.astro';
+import { SITE, ACTIVITIES, OCCASIONS, FOOTER_LINKS } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <Logo />
+      <p class="footer-tagline">{SITE.tagline}.</p>
+      <p class="footer-disclosure">
+        {SITE.name} is een onafhankelijk redactioneel platform en geen boekingskanaal.
+        Reserveringen voor de genoemde activiteiten verlopen via {SITE.partnerName}.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Activiteiten</h3>
+      <ul>
+        {ACTIVITIES.map((a) => (
+          <li><a href={`/activiteiten/${a.slug}/`}>{a.shortName}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Uitjes voor</h3>
+      <ul>
+        {OCCASIONS.map((o) => (
+          <li><a href={`/uitjes-voor/${o.slug}/`}>{o.name}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Platform</h3>
+      <ul>
+        {FOOTER_LINKS.map((l) => (
+          <li><a href={l.href}>{l.label}</a></li>
+        ))}
+      </ul>
+      <p class="footer-contact">
+        <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <hr class="hairline" />
+    <div class="footer-bottom-row">
+      <p>&copy; {year} {SITE.domain}</p>
+      <p>
+        Activiteiten en boekingen bij <a href={SITE.partnerUrl} rel="nofollow noopener" target="_blank">{SITE.partnerName}</a>, {SITE.partnerAddress}.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-ink);
+    color: #d8d3c6;
+    padding-top: 64px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+  }
+  .site-footer :global(.logo-text) { color: #f6f2e8; }
+  .site-footer :global(.logo-text strong) { color: var(--color-gold); }
+  .footer-tagline {
+    margin-top: 14px;
+    color: #f6f2e8;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    max-width: 32ch;
+  }
+  .footer-disclosure {
+    font-size: 0.86rem;
+    color: #a8a290;
+    max-width: 36ch;
+  }
+  .footer-col h3 {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #a8a290;
+    margin-bottom: 14px;
+  }
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .footer-col a {
+    text-decoration: none;
+    color: #d8d3c6;
+    font-size: 0.94rem;
+  }
+  .footer-col a:hover { color: var(--color-gold); }
+  .footer-contact { margin-top: 16px; }
+  .footer-contact a { color: var(--color-gold); text-decoration: none; font-weight: 600; }
+
+  .footer-bottom .hairline { border-color: #3a362e; margin-bottom: 20px; }
+  .footer-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding-bottom: 32px;
+    font-size: 0.84rem;
+    color: #a8a290;
+  }
+  .footer-bottom-row a { color: #d8d3c6; }
+
+  @media (max-width: 860px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>

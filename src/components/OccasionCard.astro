@@ -1,0 +1,34 @@
+---
+import type { Occasion } from '../data/site';
+interface Props {
+  occasion: Occasion;
+}
+const { occasion } = Astro.props;
+---
+<a class="card occasion-card" href={`/uitjes-voor/${occasion.slug}/`}>
+  <div class="occasion-media">
+    <img src={occasion.image} alt={occasion.imageAlt} loading="lazy" />
+  </div>
+  <div class="occasion-body">
+    <h3>{occasion.name}</h3>
+    <p>{occasion.tagline}</p>
+  </div>
+</a>
+
+<style>
+  .occasion-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+  .occasion-media { aspect-ratio: 5 / 3; overflow: hidden; }
+  .occasion-media img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+  .occasion-card:hover .occasion-media img { transform: scale(1.05); }
+  .occasion-body { padding: 20px; }
+  .occasion-body h3 { margin-bottom: 6px; font-size: 1.15rem; }
+  .occasion-body p { font-size: 0.92rem; color: var(--color-muted); margin: 0; }
+</style>

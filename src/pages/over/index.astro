@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../data/site';
+---
+<BaseLayout
+  title="Over Utrecht Team — inspiratieplatform voor uitjes in Utrecht"
+  description="Utrecht Team is een onafhankelijk inspiratieplatform voor teambuilding en groepsuitjes in Utrecht. Lees waarom dit platform bestaat en hoe het zich verhoudt tot The Team Building."
+>
+  <section class="section page-hero">
+    <div class="wrap narrow">
+      <p class="eyebrow">Over dit platform</p>
+      <h1>Eén overzichtelijke plek voor teamuitjes in Utrecht</h1>
+      <p class="lede">
+        {SITE.domain} is een inspiratieplatform: geen boekingssite, maar een plek om rustig te bekijken welke
+        activiteit, welk programma en welke gelegenheid bij een groep past voordat er geboekt wordt.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap narrow prose">
+      <h2>Waarom dit platform bestaat</h2>
+      <p>
+        Wie voor het eerst een bedrijfsuitje, vrijgezellenfeest of kinderfeestje in Utrecht organiseert, komt al
+        snel bij dezelfde vraag terecht: welke activiteit past eigenlijk bij deze groep? Een boekingspagina geeft
+        antwoord op “wat kost het en wanneer is er plek”, maar niet altijd op “is dit ook echt geschikt voor ons
+        gezelschap”. {SITE.domain} probeert die laatste vraag te beantwoorden, met uitleg per activiteit, per
+        gelegenheid en met achtergrondartikelen over teambuilding in Utrecht.
+      </p>
+
+      <h2>Wat op dit platform staat</h2>
+      <p>
+        Op <a href="/activiteiten/">de activiteitenpagina’s</a> staat per activiteit wat je kunt verwachten, voor
+        welke groepsgrootte iets geschikt is en voor wie de activiteit het best werkt. Onder
+        <a href="/uitjes-voor/">uitjes voor</a> staan gidsen per gelegenheid — bedrijfsuitje, vrijgezellenfeest,
+        kinderfeestje en uitjes met vrienden of familie. Onder <a href="/nieuws/">nieuws</a> verschijnen artikelen
+        over trends in teambuilding en concrete uitjesideeën voor Utrecht.
+      </p>
+
+      <h2>De relatie met The Team Building</h2>
+      <p>
+        Alle activiteiten die op dit platform worden beschreven, vinden plaats bij {SITE.partnerName}, het
+        indoor activiteitencentrum in het centrum van Utrecht. {SITE.domain} is een onafhankelijk redactioneel
+        platform en verzorgt zelf geen boekingen, betalingen of reserveringen — daarvoor verwijst elke pagina
+        rechtstreeks door naar {SITE.partnerName}.
+      </p>
+
+      <h2>Wie hier schrijft</h2>
+      <p>
+        Benieuwd wie de artikelen op dit platform schrijft? Lees meer op de pagina over
+        <a href="/over/redactie/">de redactie</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow { max-width: 780px; }
+</style>

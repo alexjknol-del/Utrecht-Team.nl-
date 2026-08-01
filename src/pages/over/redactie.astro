@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="De redactie van Utrecht Team"
+  description="Maak kennis met Sanne Verduin, redacteur van Utrecht Team en verantwoordelijk voor de artikelen en activiteitengidsen op dit platform."
+>
+  <section class="section-tight">
+    <div class="wrap redactie-grid">
+      <div class="redactie-media">
+        <img src="/images/persona/sanne-memoji.svg" alt="Illustratie van Sanne Verduin, redacteur van Utrecht Team" width="320" height="320" />
+      </div>
+      <div>
+        <p class="eyebrow">De redactie</p>
+        <h1>Sanne Verduin</h1>
+        <p class="lede">Redacteur bij Utrecht Team</p>
+        <div class="prose">
+          <p>
+            Sanne schrijft de activiteitengidsen en artikelen op Utrecht Team. Geboren en getogen in Utrecht,
+            en al jaren de persoon in de vriendengroep die uitjes uitzoekt — van vrijgezellenfeesten tot
+            teamuitjes voor het werk.
+          </p>
+          <p>
+            Voor dit platform bezoekt Sanne de activiteiten in Utrecht, praat ze met organisatoren en bundelt ze
+            dat in praktische gidsen: niet alleen wát een activiteit is, maar ook voor wélke groep iets wel of
+            niet werkt.
+          </p>
+          <p>
+            Vragen over een artikel of een tip voor een activiteit die nog ontbreekt? Een mail naar
+            <a href="mailto:info@Utrecht-Team.nl">info@Utrecht-Team.nl</a> komt bij de redactie terecht.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .redactie-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .redactie-media img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+  @media (max-width: 640px) {
+    .redactie-grid { grid-template-columns: 1fr; }
+    .redactie-media { max-width: 200px; }
+  }
+</style>

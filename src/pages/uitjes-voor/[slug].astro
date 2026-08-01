@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ActivityCard from '../../components/ActivityCard.astro';
+import { OCCASIONS, ACTIVITIES, SITE } from '../../data/site';
+
+export function getStaticPaths() {
+  return OCCASIONS.map((occasion) => ({
+    params: { slug: occasion.slug },
+    props: { occasion },
+  }));
+}
+
+const { occasion } = Astro.props;
+const suggested = ACTIVITIES.filter((a) => occasion.suggestedActivities.includes(a.slug));
+---
+<BaseLayout
+  title={`${occasion.name} in Utrecht — ideeën en tips`}
+  description={`${occasion.tagline}. Praktische tips voor een ${occasion.name.toLowerCase()} in Utrecht, met de activiteiten die daar het best bij passen.`}
+  image={occasion.image}
+>
+  <section class="section occasion-hero">
+    <div class="wrap occasion-hero-grid">
+      <div>
+        <p class="eyebrow">Uitjes voor</p>
+        <h1>{occasion.name} in Utrecht</h1>
+        <p class="lede">{occasion.tagline}</p>
+      </div>
+      <div class="occasion-hero-media">
+        <img src={occasion.image} alt={occasion.imageAlt} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap prose">
+      <p>{occasion.intro}</p>
+
+      <h2>Tips voor een geslaagd programma</h2>
+      <ul>
+        {occasion.tips.map((tip) => <li>{tip}</li>)}
+      </ul>
+
+      <h2>Praktisch</h2>
+      <p>{occasion.practicalNote}</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Aanbevolen</p>
+          <h2>Activiteiten die hier goed bij passen</h2>
+        </div>
+      </div>
+      <div class="grid grid-3">
+        {suggested.map((activity) => <ActivityCard activity={activity} />)}
+      </div>
+      <div class="occasion-cta">
+        <a class="btn btn-primary" href={occasion.partnerUrl} rel="nofollow noopener" target="_blank">
+          Bekijk opties bij {SITE.partnerName}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .occasion-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .occasion-hero-media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-hover);
+  }
+  .occasion-cta { margin-top: 36px; }
+  @media (max-width: 860px) {
+    .occasion-hero-grid { grid-template-columns: 1fr; }
+  }
+</style>

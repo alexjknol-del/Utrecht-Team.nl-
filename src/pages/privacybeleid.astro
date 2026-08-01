@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../data/site';
+---
+<BaseLayout
+  title="Privacybeleid"
+  description="Lees hoe Utrecht Team omgaat met persoonsgegevens: welke gegevens worden verwerkt, waarom, en welke rechten bezoekers hebben."
+>
+  <section class="section-tight">
+    <div class="wrap narrow prose">
+      <p class="eyebrow">Juridisch</p>
+      <h1>Privacybeleid</h1>
+      <p class="lede">Laatst bijgewerkt: augustus 2026</p>
+
+      <p>
+        {SITE.domain} ("dit platform", "wij") hecht waarde aan een zorgvuldige omgang met persoonsgegevens.
+        Dit privacybeleid legt uit welke gegevens worden verwerkt wanneer je deze website bezoekt of contact
+        opneemt, en welke rechten daarbij horen.
+      </p>
+
+      <h2>Wie is verantwoordelijk</h2>
+      <p>
+        {SITE.domain} is verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in dit
+        beleid. Voor vragen is de redactie te bereiken via
+        <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.
+      </p>
+
+      <h2>Welke gegevens worden verwerkt</h2>
+      <p>
+        Deze website bevat geen contactformulier, geen gebruikersaccounts en geen inschrijfformulier voor een
+        nieuwsbrief. Persoonsgegevens komen daardoor alleen binnen wanneer je zelf een e-mail stuurt naar
+        {SITE.contactEmail}. In dat geval verwerken we het e-mailadres en de overige gegevens die in het bericht
+        staan, uitsluitend om te kunnen reageren.
+      </p>
+      <p>
+        Daarnaast worden bij een websitebezoek automatisch technische gegevens verwerkt door onze hostingpartij,
+        zoals IP-adres en tijdstip van bezoek, voor beveiliging en het functioneren van de website. Zie het
+        <a href="/cookiebeleid/">cookiebeleid</a> voor meer informatie hierover.
+      </p>
+
+      <h2>Grondslag en bewaartermijn</h2>
+      <p>
+        E-mailcontact wordt verwerkt op basis van gerechtvaardigd belang (het kunnen afhandelen van vragen) of,
+        waar van toepassing, toestemming. Berichten worden niet langer bewaard dan nodig is om de vraag te
+        kunnen afhandelen, tenzij een langere bewaartermijn wettelijk verplicht is.
+      </p>
+
+      <h2>Delen met derden</h2>
+      <p>
+        Persoonsgegevens worden niet verkocht of gedeeld met derden voor marketingdoeleinden. Deze website bevat
+        wel links naar en video's van derde partijen, waaronder {SITE.partnerName} en Vimeo. Wanneer je op zo'n
+        link klikt of een video afspeelt, gelden de voorwaarden en het privacybeleid van die derde partij. Wij
+        zijn niet verantwoordelijk voor de manier waarop deze derde partijen met gegevens omgaan.
+      </p>
+
+      <h2>Jouw rechten</h2>
+      <p>
+        Onder de Algemene Verordening Gegevensbescherming (AVG) heb je onder meer recht op inzage, correctie en
+        verwijdering van je persoonsgegevens, recht op bezwaar en recht op overdraagbaarheid van gegevens. Een
+        verzoek hiertoe kan per e-mail worden ingediend via {SITE.contactEmail}. Ook heb je het recht om een
+        klacht in te dienen bij de Autoriteit Persoonsgegevens.
+      </p>
+
+      <h2>Wijzigingen</h2>
+      <p>
+        Dit privacybeleid kan worden aangepast, bijvoorbeeld wanneer de website wordt uitgebreid met nieuwe
+        functionaliteit. De datum bovenaan deze pagina geeft aan wanneer het beleid voor het laatst is gewijzigd.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow { max-width: 720px; }
+</style>

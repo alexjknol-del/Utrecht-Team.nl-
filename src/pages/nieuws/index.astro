@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('nieuws')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const [featured, ...rest] = articles;
+---
+<BaseLayout
+  title="Nieuws — teambuilding en uitjes in Utrecht"
+  description="Achtergrondartikelen, gidsen en actuele thema's over teambuilding en groepsuitjes in Utrecht."
+>
+  <section class="section page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Nieuws</p>
+      <h1>Verhalen, gidsen en trends rond uitjes in Utrecht</h1>
+      <p class="lede">
+        Achtergrond bij de activiteiten op dit platform: van praktische tips tot bredere ontwikkelingen in
+        teambuilding.
+      </p>
+    </div>
+  </section>
+
+  {featured && (
+    <section class="section-tight">
+      <div class="wrap">
+        <ArticleCard
+          slug={featured.slug}
+          title={featured.data.title}
+          description={featured.data.description}
+          image={featured.data.image}
+          imageAlt={featured.data.imageAlt}
+          pubDate={featured.data.pubDate}
+          featured
+        />
+      </div>
+    </section>
+  )}
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="grid grid-3">
+        {rest.map((article) => (
+          <ArticleCard
+            slug={article.slug}
+            title={article.data.title}
+            description={article.data.description}
+            image={article.data.image}
+            imageAlt={article.data.imageAlt}
+            pubDate={article.data.pubDate}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { padding-bottom: 8px; }
+</style>

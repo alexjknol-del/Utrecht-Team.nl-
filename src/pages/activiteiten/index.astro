@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ActivityCard from '../../components/ActivityCard.astro';
+import { ACTIVITIES, SITE } from '../../data/site';
+---
+<BaseLayout
+  title="Activiteiten in Utrecht — teambuilding en groepsuitjes"
+  description="Alle activiteiten van The Team Building op een rij: Nox Room, Social Games, Fusion Drift, Melody Vault, Axe Throwing en escape room The Diamond Heist."
+>
+  <section class="section page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Activiteiten</p>
+      <h1>Zes manieren om samen iets te beleven in Utrecht</h1>
+      <p class="lede">
+        Alle activiteiten hieronder vinden plaats bij {SITE.partnerName} in het centrum van Utrecht. Elke pagina
+        legt uit wat je kunt verwachten, voor wie de activiteit het best werkt en hoe je rechtstreeks boekt.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="grid grid-3">
+        {ACTIVITIES.map((activity) => <ActivityCard activity={activity} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap helper-banner">
+      <div>
+        <h2>Nog geen idee welke activiteit past?</h2>
+        <p class="lede">
+          The Team Building heeft een keuzehulp waarmee je in een paar vragen ontdekt welke activiteit bij jullie
+          groep past.
+        </p>
+      </div>
+      <a
+        class="btn btn-primary"
+        href="https://theteambuilding.nl/activiteiten-utrecht/activiteiten-keuzehulp/"
+        rel="nofollow noopener"
+        target="_blank"
+      >
+        Doe de keuzehulp
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { padding-bottom: 8px; }
+  .helper-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+</style>

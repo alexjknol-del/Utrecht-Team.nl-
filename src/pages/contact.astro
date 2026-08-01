@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../data/site';
+---
+<BaseLayout
+  title="Contact"
+  description="Neem contact op met Utrecht Team via info@Utrecht-Team.nl. Let op: voor boekingen bij The Team Building kun je rechtstreeks bij hen terecht."
+>
+  <section class="section-tight">
+    <div class="wrap narrow">
+      <p class="eyebrow">Contact</p>
+      <h1>Contact opnemen</h1>
+      <p class="lede">
+        Vragen, opmerkingen of een tip voor een activiteit die nog ontbreekt op dit platform? Een mail is de
+        snelste manier om de redactie te bereiken.
+      </p>
+
+      <div class="contact-card card">
+        <p class="contact-label">E-mail</p>
+        <a class="contact-email" href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>
+      </div>
+
+      <div class="prose">
+        <h2>Boeken bij The Team Building</h2>
+        <p>
+          {SITE.domain} verzorgt zelf geen boekingen of reserveringen. Voor het boeken van een activiteit, vragen
+          over prijzen of beschikbaarheid kun je rechtstreeks terecht bij {SITE.partnerName}
+          ({SITE.partnerAddress}), via
+          <a href={SITE.partnerUrl} rel="nofollow noopener" target="_blank">theteambuilding.nl</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow { max-width: 680px; }
+  .contact-card {
+    padding: 28px 32px;
+    margin: 32px 0 40px;
+  }
+  .contact-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 6px;
+  }
+  .contact-email {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: var(--color-red);
+  }
+  .contact-email:hover { text-decoration: underline; }
+</style>

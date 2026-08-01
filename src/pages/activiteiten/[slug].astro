@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import VimeoEmbed from '../../components/VimeoEmbed.astro';
+import ActivityCard from '../../components/ActivityCard.astro';
+import { ACTIVITIES, SITE } from '../../data/site';
+
+export function getStaticPaths() {
+  return ACTIVITIES.map((activity) => ({
+    params: { slug: activity.slug },
+    props: { activity },
+  }));
+}
+
+const { activity } = Astro.props;
+const related = ACTIVITIES.filter((a) => a.slug !== activity.slug).slice(0, 3);
+---
+<BaseLayout
+  title={`${activity.name} in Utrecht — uitleg, video en boeken`}
+  description={`${activity.tagline}. Alles over ${activity.name} bij The Team Building in Utrecht: voor wie het geschikt is, groepsgrootte en hoe je boekt.`}
+  image={activity.image}
+>
+  <section class="section activity-hero">
+    <div class="wrap activity-hero-grid">
+      <div>
+        <p class="eyebrow">{activity.category} · Activiteit in Utrecht</p>
+        <h1>{activity.name}</h1>
+        <p class="lede">{activity.tagline}</p>
+        <dl class="fact-list">
+          <div>
+            <dt>Groepsgrootte</dt>
+            <dd>{activity.groupSize}</dd>
+          </div>
+          <div>
+            <dt>Duur</dt>
+            <dd>{activity.duration}</dd>
+          </div>
+          <div>
+            <dt>Locatie</dt>
+            <dd>{SITE.partnerName}, Utrecht</dd>
+          </div>
+        </dl>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={activity.partnerUrl} rel="nofollow noopener" target="_blank">
+            Bekijk & boek op theteambuilding.nl
+          </a>
+        </div>
+        <p class="nofollow-note">Boeken en actuele prijzen verlopen via de website van {SITE.partnerName}.</p>
+      </div>
+      <div class="activity-hero-media">
+        <img src={activity.image} alt={activity.imageAlt} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap prose">
+      <p>{activity.intro}</p>
+
+      <h2>Wat maakt {activity.shortName} bijzonder</h2>
+      <ul>
+        {activity.highlights.map((point) => <li>{point}</li>)}
+      </ul>
+
+      <h2>Voor wie is dit ideaal?</h2>
+      <p>{activity.forWho}</p>
+
+      <h2>Goed om te weten</h2>
+      <p>{activity.goodToKnow}</p>
+    </div>
+  </section>
+
+  {activity.vimeoId && (
+    <section class="section section-alt">
+      <div class="wrap video-block">
+        <p class="eyebrow">In beeld</p>
+        <h2>Zo ziet {activity.shortName} eruit</h2>
+        <VimeoEmbed vimeoId={activity.vimeoId} title={`${activity.name} bij The Team Building`} />
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Ook interessant</p>
+          <h2>Andere activiteiten bij The Team Building</h2>
+        </div>
+        <a class="btn btn-ghost" href="/activiteiten/">Alle activiteiten</a>
+      </div>
+      <div class="grid grid-3">
+        {related.map((a) => <ActivityCard activity={a} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .activity-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .fact-list {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 22px;
+    margin: 26px 0;
+    padding: 20px 0;
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .fact-list dt {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 4px;
+  }
+  .fact-list dd { margin: 0; font-weight: 600; }
+  .activity-hero-media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card-hover);
+  }
+  .video-block h2 { margin-bottom: 24px; }
+
+  @media (max-width: 860px) {
+    .activity-hero-grid { grid-template-columns: 1fr; }
+    .fact-list { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .fact-list { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>

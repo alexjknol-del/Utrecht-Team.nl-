@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../data/site';
+---
+<BaseLayout
+  title="Cookiebeleid"
+  description="Overzicht van de cookies en vergelijkbare technieken die Utrecht Team gebruikt, inclusief video-embeds van Vimeo."
+>
+  <section class="section-tight">
+    <div class="wrap narrow prose">
+      <p class="eyebrow">Juridisch</p>
+      <h1>Cookiebeleid</h1>
+      <p class="lede">Laatst bijgewerkt: augustus 2026</p>
+
+      <p>
+        Deze website is bewust eenvoudig gehouden: er is geen trackingsoftware, geen advertentienetwerk en geen
+        bezoekersanalyse met cookies actief. Lettertypen worden lokaal vanaf deze website geladen in plaats van
+        via een externe lettertypedienst, zodat daarvoor geen gegevens naar derden gaan.
+      </p>
+
+      <h2>Functionele, technische gegevensverwerking</h2>
+      <p>
+        Voor het functioneren en beveiligen van de website (bijvoorbeeld bescherming tegen misbruik) verwerkt
+        onze hostingpartij automatisch technische gegevens, zoals IP-adres en tijdstip van een verzoek. Dit valt
+        onder de uitzondering voor strikt noodzakelijke, functionele cookies en vergelijkbare technieken uit de
+        Telecommunicatiewet, waarvoor geen toestemming vereist is.
+      </p>
+
+      <h2>Video's van Vimeo</h2>
+      <p>
+        Op activiteitenpagina's staan soms video's ingesloten via Vimeo. Deze video's zijn ingesteld met de
+        "do-not-track"-optie van Vimeo, wat het plaatsen van trackingcookies beperkt. Zodra je een video afspeelt,
+        kan Vimeo alsnog technische gegevens verwerken die nodig zijn om de video af te spelen; hiervoor gelden
+        het cookie- en privacybeleid van Vimeo.
+      </p>
+
+      <h2>Links naar The Team Building</h2>
+      <p>
+        Boekingslinks op deze website leiden naar {SITE.partnerName} ({SITE.partnerUrl.replace('https://', '')}).
+        Zodra je die website bezoekt, gelden hun cookie- en privacybeleid. {SITE.domain} heeft daar geen invloed
+        op.
+      </p>
+
+      <h2>Vragen</h2>
+      <p>
+        Vragen over dit cookiebeleid kunnen worden gestuurd naar
+        <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>. Zie ook het
+        <a href="/privacybeleid/">privacybeleid</a> voor meer informatie over de omgang met persoonsgegevens.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow { max-width: 720px; }
+</style>
