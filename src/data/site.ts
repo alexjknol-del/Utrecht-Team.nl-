@@ -92,8 +92,8 @@ export const ACTIVITIES: Activity[] = [
     category: 'Actief',
     partnerUrl: 'https://theteambuilding.nl/activiteiten-utrecht/karten-utrecht/fusion-drift/',
     vimeoId: '900774865',
-    image: '/images/activiteiten/fusion-drift-uitleg.jpg',
-    imageAlt: 'Spelregels en scorebord van de kartbaan bij The Team Building Utrecht',
+    image: '/images/activiteiten/fusion-drift-kart.jpg',
+    imageAlt: 'Kart op de indoor baan van Fusion Drift bij The Team Building in Utrecht',
     highlights: [
       'Game-elementen als speed-ups, aanvallen en verdediging bovenop het racen zelf',
       'Elektrische karts, dus geschikt voor een indoor baan zonder uitlaatgassen',
@@ -233,7 +233,7 @@ export const OCCASIONS: Occasion[] = [
     tagline: 'Een verjaardag die niet in een zaaltje met slingers hoeft te eindigen',
     partnerUrl: 'https://theteambuilding.nl/kinderfeestje-utrecht/',
     image: '/images/sfeer/kinderfeestje.jpg',
-    imageAlt: 'Kinderen tijdens een kinderfeestje in Utrecht',
+    imageAlt: 'Interactieve Social Games-activiteit bij The Team Building, geschikt voor een kinderfeestje in Utrecht',
     intro:
       'Voor een kinderfeestje telt vooral dat de activiteit snel te begrijpen is en genoeg actie bevat om een groepje kinderen langer dan tien minuten geboeid te houden. Social Games en Fusion Drift zijn daar allebei geschikt voor.',
     tips: [
