@@ -3,7 +3,7 @@ title: "Axe throwing in Utrecht: van oermens-activiteit tot populairste teamuitj
 description: "Waarom bijlwerpen een van de snelst groeiende teamuitjes van Nederland is, hoe een sessie verloopt en waarom concentratie belangrijker is dan kracht."
 pubDate: 2026-05-18
 image: "/images/sfeer/axe-throwing.jpg"
-imageAlt: "Bijlwerpen bij The Team Building in Utrecht"
+imageAlt: "Deelnemer gooit met een bijl op het doelwit bij Axe Throwing van The Team Building in Utrecht"
 tags: ["Axe Throwing", "Trends"]
 author: "Sanne Verduin"
 ---

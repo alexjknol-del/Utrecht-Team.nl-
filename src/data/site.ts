@@ -117,7 +117,7 @@ export const ACTIVITIES: Activity[] = [
     isNew: true,
     partnerUrl: 'https://theteambuilding.nl/activiteiten-utrecht/karaoke-music-quiz/',
     image: '/images/sfeer/melody-vault.jpg',
-    imageAlt: 'Karaoke- en muziekquizruimte Melody Vault in Utrecht',
+    imageAlt: 'Groep zingt karaoke onder de discobal in de Melody Vault-zangkamer bij The Team Building in Utrecht',
     highlights: [
       'Eigen zangkamers voor een kleinere, besloten groep binnen het gezelschap',
       'Uitgebreide hitcatalogus van verschillende decennia en genres',
@@ -141,7 +141,7 @@ export const ACTIVITIES: Activity[] = [
     partnerUrl: 'https://theteambuilding.nl/activiteiten-utrecht/axe-throwing-utrecht/',
     vimeoId: '1020584913',
     image: '/images/sfeer/axe-throwing.jpg',
-    imageAlt: 'Bijlwerpen bij The Team Building in Utrecht',
+    imageAlt: 'Deelnemer gooit met een bijl op het doelwit bij Axe Throwing van The Team Building in Utrecht',
     highlights: [
       'Instructie en begeleiding door een gamemaster, ook voor complete beginners',
       'Individuele banen naast elkaar, dus iedereen gooit tegelijk mee',

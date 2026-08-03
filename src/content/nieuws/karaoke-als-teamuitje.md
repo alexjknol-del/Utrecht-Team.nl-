@@ -3,7 +3,7 @@ title: "Karaoke als teamuitje: waarom zingen mensen dichter bij elkaar brengt"
 description: "Bij Melody Vault gaat het niet om winnen. Waarom een niet-competitieve activiteit soms meer voor een groep doet dan een strategisch teamuitje."
 pubDate: 2026-06-02
 image: "/images/sfeer/melody-vault.jpg"
-imageAlt: "Karaoke- en muziekquizruimte Melody Vault in Utrecht"
+imageAlt: "Groep zingt karaoke onder de discobal in de Melody Vault-zangkamer bij The Team Building in Utrecht"
 tags: ["Karaoke", "Teambuilding"]
 author: "Sanne Verduin"
 ---
