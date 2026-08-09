@@ -271,6 +271,7 @@ export const NAV = [
   { href: '/uitjes-voor/', label: 'Uitjes voor' },
   { href: '/nieuws/', label: 'Nieuws' },
   { href: '/over/', label: 'Over' },
+  { href: '/partners/', label: 'Partners' },
   { href: '/contact/', label: 'Contact' },
 ];
 

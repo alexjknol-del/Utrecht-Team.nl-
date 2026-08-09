@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const partners = [
+  {
+    naam: 'Van der Zwaard',
+    url: 'https://www.vanderzwaard.nl/diensten/boekhouder-den-haag/',
+    beschrijving:
+      'Van der Zwaard is een accountants- en belastingadvieskantoor in Den Haag, met dienstverlening voor ondernemers op het gebied van boekhouding, administratie en belastingadvies.',
+    anchor: 'boekhouder den haag',
+  },
+  {
+    naam: 'DLSA Letselschade Advocaten',
+    url: 'https://dlsa.nl/chroom-6-defensie',
+    beschrijving:
+      'DLSA is gespecialiseerd in letselschade, onder meer voor (oud-)militairen met gezondheidsklachten door chroom-6 of PTSS, en begeleidt schadeclaims tegen Defensie.',
+    anchor: 'chroom 6 defensie',
+  },
+];
+---
+
+<BaseLayout
+  title="Partners"
+  description="Partners en bronnen waar Utrecht Team naar verwijst."
+>
+  <section class="section-tight">
+    <div class="wrap narrow">
+      <p class="eyebrow">Partners</p>
+      <h1>Partners en bronnen</h1>
+      <p class="lede">Utrecht Team verwijst hier naar externe partners en bronnen.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="partners-grid">
+        {partners.map((partner) => (
+          <div class="card partner-card">
+            <h3>{partner.naam}</h3>
+            <p>{partner.beschrijving}</p>
+            <a href={partner.url} target="_blank" rel="noopener">{partner.anchor}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow { max-width: 680px; }
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .partner-card {
+    padding: 26px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  @media (max-width: 700px) {
+    .partners-grid { grid-template-columns: 1fr; }
+  }
+</style>
