@@ -16,7 +16,7 @@ De motorwereld staat niet stil. Fabrikanten ontwikkelen nieuwe modellen, rijhulp
 
 Een motorbeurs biedt de mogelijkheid om verschillende merken, modellen en accessoires op één locatie te bekijken. Hierdoor kun je gemakkelijker vergelijken welke motor aansluit bij jouw rijstijl, ervaring en persoonlijke voorkeuren.
 
-Wie vooraf zoekt naar [korting voor de motorbeurs Utrecht](https://www.uitmetkorting.nl/motorbeurs-utrecht/), kan mogelijk besparen op de toegangsprijs. Zeker wanneer je samen met vrienden of familie gaat, kan het vergelijken van beschikbare aanbiedingen de moeite waard zijn.
+Wie vooraf zoekt naar <a href="https://www.uitmetkorting.nl/motorbeurs-utrecht/" data-follow>korting voor de motorbeurs Utrecht</a>, kan mogelijk besparen op de toegangsprijs. Zeker wanneer je samen met vrienden of familie gaat, kan het vergelijken van beschikbare aanbiedingen de moeite waard zijn.
 
 ## Meer dan alleen motoren bekijken
 
@@ -40,7 +40,7 @@ De centrale ligging van de Jaarbeurs maakt het gemakkelijk om een beursbezoek te
 
 Langs de Oudegracht vind je gezellige horecagelegenheden, bijzondere winkels en karakteristieke werfkelders. Ook het Domplein en de omliggende straatjes zijn de moeite waard.
 
-Wie meerdere activiteiten wil combineren, kan via [Uit met Korting](https://www.uitmetkorting.nl/) onderzoeken welke aanbiedingen voor evenementen, musea en andere dagjes uit beschikbaar zijn. Zo kun je vooraf een passend budget bepalen voor een complete dag in de stad.
+Wie meerdere activiteiten wil combineren, kan via <a href="https://www.uitmetkorting.nl/" data-follow>Uit met Korting</a> onderzoeken welke aanbiedingen voor evenementen, musea en andere dagjes uit beschikbaar zijn. Zo kun je vooraf een passend budget bepalen voor een complete dag in de stad.
 
 ## Samen genieten van een gedeelde passie
 
