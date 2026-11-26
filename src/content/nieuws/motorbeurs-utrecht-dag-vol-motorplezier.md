@@ -2,8 +2,8 @@
 title: "Een dag vol motorplezier en inspiratie in Utrecht"
 description: "Ontdek de MOTORbeurs Utrecht, doe inspiratie op voor het nieuwe motorseizoen en combineer je beursbezoek met een voordelig dagje in de binnenstad."
 pubDate: 2026-11-26
-image: "/images/sfeer/bedrijfsuitje.jpg"
-imageAlt: "Groep bezoekers tijdens een dagje uit in Utrecht"
+image: "/images/nieuws/motorbeurs-utrecht.jpg"
+imageAlt: "Motorfietsen tentoongesteld op een motorbeurs"
 tags: ["Evenementen", "Utrecht"]
 author: "Sanne Verduin"
 ---
